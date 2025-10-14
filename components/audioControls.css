@@ -1,0 +1,365 @@
+/**
+ * Audio Controls Styles
+ * Floating audio control panel with volume and playback controls
+ */
+
+/* Base Audio Controls */
+.audio-controls {
+  position: fixed;
+  z-index: var(--z-fixed, 1000);
+  background: var(--color-gray-900, #111827);
+  border-radius: var(--radius-xl, 12px);
+  box-shadow: var(--shadow-2xl, 0 25px 50px -12px rgba(0, 0, 0, 0.25));
+  padding: var(--space-4, 16px);
+  min-width: 280px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--duration-base, 300ms) var(--ease-out, cubic-bezier(0, 0, 0.2, 1));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.audio-controls-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Position Variants */
+.audio-controls-bottom-right {
+  bottom: var(--space-6, 24px);
+  right: var(--space-6, 24px);
+}
+
+.audio-controls-bottom-left {
+  bottom: var(--space-6, 24px);
+  left: var(--space-6, 24px);
+}
+
+.audio-controls-top-right {
+  top: var(--space-20, 80px);
+  right: var(--space-6, 24px);
+}
+
+.audio-controls-top-left {
+  top: var(--space-20, 80px);
+  left: var(--space-6, 24px);
+}
+
+/* Theme Variants */
+.audio-controls-light {
+  background: var(--bg-primary, #ffffff);
+  color: var(--color-gray-900, #111827);
+  border-color: var(--color-gray-200, #e5e7eb);
+}
+
+.audio-controls-dark {
+  background: var(--color-gray-900, #111827);
+  color: var(--color-white, #ffffff);
+}
+
+/* Content Container */
+.audio-controls-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 16px);
+}
+
+/* Century Label */
+.audio-century-label {
+  font-size: var(--text-sm, 14px);
+  font-weight: var(--font-semibold, 600);
+  color: var(--color-accent, #ffd700);
+  text-align: center;
+  padding-bottom: var(--space-2, 8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.audio-controls-light .audio-century-label {
+  color: var(--color-primary, #3f87a6);
+  border-bottom-color: var(--color-gray-200, #e5e7eb);
+}
+
+/* Controls Buttons Container */
+.audio-controls-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3, 12px);
+}
+
+/* Control Buttons */
+.audio-control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white, #ffffff);
+  border-radius: var(--radius-lg, 8px);
+  cursor: pointer;
+  transition: all var(--duration-fast, 150ms) var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+  flex-shrink: 0;
+}
+
+.audio-controls-light .audio-control-btn {
+  background: var(--color-gray-100, #f3f4f6);
+  color: var(--color-gray-700, #374151);
+}
+
+.audio-control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.audio-controls-light .audio-control-btn:hover {
+  background: var(--color-gray-200, #e5e7eb);
+}
+
+.audio-control-btn:active {
+  transform: scale(0.95);
+}
+
+.audio-control-btn:focus {
+  outline: 2px solid var(--color-accent, #ffd700);
+  outline-offset: 2px;
+}
+
+/* Audio Icons */
+.audio-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Volume Container */
+.audio-volume-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+}
+
+/* Volume Slider */
+.audio-volume-slider {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full, 9999px);
+  outline: none;
+  cursor: pointer;
+}
+
+.audio-controls-light .audio-volume-slider {
+  background: var(--color-gray-200, #e5e7eb);
+}
+
+/* Volume Slider Thumb - WebKit */
+.audio-volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--color-accent, #ffd700);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--duration-fast, 150ms);
+}
+
+.audio-controls-light .audio-volume-slider::-webkit-slider-thumb {
+  background: var(--color-primary, #3f87a6);
+}
+
+.audio-volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* Volume Slider Thumb - Firefox */
+.audio-volume-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--color-accent, #ffd700);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--duration-fast, 150ms);
+}
+
+.audio-controls-light .audio-volume-slider::-moz-range-thumb {
+  background: var(--color-primary, #3f87a6);
+}
+
+.audio-volume-slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Volume Slider Track - Firefox */
+.audio-volume-slider::-moz-range-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full, 9999px);
+}
+
+.audio-controls-light .audio-volume-slider::-moz-range-track {
+  background: var(--color-gray-200, #e5e7eb);
+}
+
+/* Volume Value Display */
+.audio-volume-value {
+  font-size: var(--text-xs, 12px);
+  font-weight: var(--font-medium, 500);
+  color: rgba(255, 255, 255, 0.7);
+  min-width: 40px;
+  text-align: right;
+}
+
+.audio-controls-light .audio-volume-value {
+  color: var(--color-gray-600, #4b5563);
+}
+
+/* Minimize Button */
+.audio-minimize-btn {
+  position: absolute;
+  top: var(--space-2, 8px);
+  right: var(--space-2, 8px);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  border-radius: var(--radius-base, 4px);
+  transition: all var(--duration-fast, 150ms);
+}
+
+.audio-controls-light .audio-minimize-btn {
+  color: var(--color-gray-500, #6b7280);
+}
+
+.audio-minimize-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white, #ffffff);
+}
+
+.audio-controls-light .audio-minimize-btn:hover {
+  background: var(--color-gray-100, #f3f4f6);
+  color: var(--color-gray-700, #374151);
+}
+
+/* Minimized State */
+.audio-controls-minimized {
+  min-width: auto;
+  padding: var(--space-3, 12px);
+}
+
+.audio-controls-minimized .audio-century-label,
+.audio-controls-minimized .audio-controls-buttons,
+.audio-controls-minimized .audio-volume-container {
+  display: none;
+}
+
+.audio-controls-minimized .audio-minimize-btn {
+  position: static;
+  width: 32px;
+  height: 32px;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .audio-controls {
+    min-width: auto;
+    max-width: calc(100vw - var(--space-8, 32px));
+  }
+
+  .audio-controls-bottom-right,
+  .audio-controls-bottom-left {
+    bottom: var(--space-4, 16px);
+    right: var(--space-4, 16px);
+    left: var(--space-4, 16px);
+  }
+
+  .audio-controls-top-right,
+  .audio-controls-top-left {
+    top: var(--space-16, 64px);
+    right: var(--space-4, 16px);
+    left: var(--space-4, 16px);
+  }
+
+  .audio-century-label {
+    font-size: var(--text-xs, 12px);
+  }
+
+  .audio-controls-buttons {
+    gap: var(--space-2, 8px);
+  }
+
+  .audio-control-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .audio-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Dark Mode Override */
+@media (prefers-color-scheme: dark) {
+  .audio-controls-light {
+    background: var(--color-gray-800, #1f2937);
+    color: var(--color-gray-100, #f3f4f6);
+    border-color: var(--color-gray-700, #374151);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .audio-controls,
+  .audio-control-btn,
+  .audio-volume-slider::-webkit-slider-thumb,
+  .audio-volume-slider::-moz-range-thumb {
+    transition: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .audio-controls {
+    border: 2px solid currentColor;
+  }
+
+  .audio-control-btn {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Loading State */
+.audio-controls-loading .audio-play-btn {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.audio-controls-loading .audio-play-btn::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: audioControlSpin 0.8s linear infinite;
+}
+
+@keyframes audioControlSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
