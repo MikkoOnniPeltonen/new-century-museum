@@ -5,7 +5,7 @@ An immersive, interactive web application that takes users on a cinematic journe
 ## ✨ Features
 
 ### Core Experience
-- **Cinematic Landing Page** - Animated intro sequence with word animations, transitions, and video backgrounds
+- **Cinematic Landing Page** - Animated intro sequence with word animations and transitions
 - **Interactive Museum Rooms** - Four century-themed rooms (1600s-1900s) with unique visual identities
 - **Historical Persons Gallery** - Carousel-based selection system with 20 historically diverse figures
 - **Immersive Room Views** - Flip-card interactions revealing biographies and notable works
@@ -13,7 +13,7 @@ An immersive, interactive web application that takes users on a cinematic journe
 
 ### Professional Enhancements
 - **Design System** - Consistent color palette, typography, and spacing variables
-- **Toast Notifications** - Professional, accessible notification system
+- **Notification System** - Simple, elegant notifications for user feedback
 - **Custom Modals** - Elegant modal dialogs replacing browser alerts
 - **Loading States** - Skeleton screens and loading indicators
 - **Lazy Loading** - Optimized image loading with intersection observer
@@ -63,15 +63,13 @@ Museum-by-centuries/
 ├── index.js                    # Landing page logic
 ├── roomClass.js                # Room data model (legacy)
 ├── components/                 # Reusable UI components
-│   ├── toast.js               # Toast notification system
-│   ├── toast.css              # Toast styles
 │   ├── modal.js               # Modal dialog system
 │   ├── modal.css              # Modal styles
 │   └── loading.css            # Loading states & skeletons
 ├── data/                       # JSON data files
 │   └── historical-persons.json # Historical figures database
 ├── utils/                      # Utility functions
-│   ├── dataLoader.js          # Data fetching & caching
+│   ├── accessibility.js       # Screen reader announcements
 │   └── lazyLoad.js            # Image lazy loading
 ├── styles/                     # Stylesheets
 │   ├── design-system.css      # CSS variables & tokens
@@ -117,24 +115,6 @@ The project uses a comprehensive design system with CSS custom properties:
 
 ## 🔧 Usage Examples
 
-### Toast Notifications
-
-```javascript
-import { toast } from './components/toast.js';
-
-// Success notification
-toast.success('Person added to room!');
-
-// Error notification
-toast.error('Failed to load data');
-
-// Custom options
-toast.info('Welcome to the museum', {
-    duration: 5000,
-    position: 'top-center'
-});
-```
-
 ### Modal Dialogs
 
 ```javascript
@@ -164,22 +144,26 @@ const modal = new Modal({
 modal.show();
 ```
 
-### Data Loading
+### Simple Notifications
 
 ```javascript
-import { dataLoader } from './utils/dataLoader.js';
+// Built-in notification system in historicalPersonsPage.js
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('notification-container');
+    const notificationMessage = document.getElementById('notification-message');
 
-// Load all historical persons
-const persons = await dataLoader.loadHistoricalPersons();
+    notificationMessage.textContent = message;
+    notification.classList.remove('hidden');
 
-// Filter by century
-const persons1800s = dataLoader.getPersonsByCentury('1800s');
+    // Auto-hide after 3 seconds
+    setTimeout(() => {
+        notification.classList.add('hidden');
+    }, 3000);
+}
 
-// Search persons
-const results = dataLoader.searchPersons('einstein');
-
-// Get all traits
-const traits = dataLoader.getAllTraits();
+// Usage
+showNotification('Person added to room!', 'success');
+showNotification('Person removed from room', 'info');
 ```
 
 ### Lazy Loading Images
@@ -279,13 +263,16 @@ Identify figures from different centuries in a mixed group
 
 ### Third-Party Resources
 - **Tailwind CSS** - Styling framework (https://tailwindcss.com)
-- **Background Video** - Pixabay (https://pixabay.com)
 - **Social Media Icons** - Wikimedia Commons
 
 ### Historical Content
 - Historical biographies compiled from various educational sources
 - Portrait images and notable works illustrations are used for educational purposes
 - All historical information is presented for non-commercial educational use
+
+### Libraries & Frameworks
+- **Bootstrap 5.3** - Carousel component for person gallery
+- **Tailwind CSS** - Utility-first styling framework
 
 ## 📧 Contact
 
