@@ -1,0 +1,666 @@
+{
+  "persons": [
+    {
+      "id": "sor-juana",
+      "century": "1600s",
+      "name": "Sor Juana Inés de la Cruz",
+      "born": 1648,
+      "died": 1695,
+      "region": "Latin America",
+      "profession": "Writer & Philosopher",
+      "traits": [
+        "writer",
+        "philosopher"
+      ],
+      "bio": "Sor Juana Inés de la Cruz was a writer, scholar and nun in New Spain, in what is now Mexico. Her poetry, plays and prose belong to the Hispanic Baroque, and her writings defended women's access to learning.",
+      "work": {
+        "title": "Poetry, plays & prose",
+        "description": "She wrote religious and secular poetry, plays and prose, including arguments for women's intellectual education."
+      },
+      "location": {
+        "label": "Mexico City, New Spain",
+        "lat": 19.4326,
+        "lng": -99.1332
+      },
+      "lifespanLabel": "1648 or 1651–1695",
+      "dateNote": "Sources give either 1648 or 1651 for her birth. The timeline uses 1648 as a plotting reference, not a settled date.",
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "INEHRM: Sor Juana",
+          "url": "https://inehrm.gob.mx/sitios/proceres/index.php?p=sor-juana"
+        }
+      ]
+    },
+    {
+      "id": "isaac-newton",
+      "century": "1600s",
+      "name": "Isaac Newton",
+      "born": 1643,
+      "died": 1727,
+      "region": "Europe",
+      "profession": "Scientist & Mathematician",
+      "traits": [
+        "scientist",
+        "mathematician"
+      ],
+      "bio": "An English mathematician, physicist, astronomer, alchemist, theologian, and author, Newton is widely recognized as one of the most influential scientists of all time and a key figure in the Scientific Revolution.",
+      "work": {
+        "title": "Principia Mathematica (1687)",
+        "description": "His book “Philosophiæ Naturalis Principia Mathematica” laid the foundations of classical mechanics."
+      },
+      "location": {
+        "label": "Cambridge, England",
+        "lat": 52.2053,
+        "lng": 0.1218
+      },
+      "dateNote": "Birth is shown in the Gregorian calendar (1643); English Old Style records give 1642.",
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Royal Society: Newton and Principia",
+          "url": "https://royalsociety.org/news/2014/astronaut-tim-peake-principia/"
+        }
+      ]
+    },
+    {
+      "id": "shah-abbas",
+      "century": "1600s",
+      "name": "Shah Abbas I",
+      "born": 1571,
+      "died": 1629,
+      "region": "Middle East",
+      "profession": "Ruler & Military Leader",
+      "traits": [
+        "head of state",
+        "military leader"
+      ],
+      "bio": "Shah Abbas I strengthened the Safavid state through military reforms, trade and architectural patronage in Isfahan. His reign also involved warfare and forced population transfers, including the displacement of Armenians to Persia.",
+      "work": {
+        "title": "The rebuilding of Isfahan",
+        "description": "His patronage transformed Isfahan's royal and commercial centre, including the monumental square now known as Naqsh-e Jahan."
+      },
+      "location": {
+        "label": "Isfahan, Safavid Persia",
+        "lat": 32.6546,
+        "lng": 51.668
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Encyclopaedia Iranica: Abbas I",
+          "url": "https://www.iranicaonline.org/articles/abbas-i/"
+        },
+        {
+          "title": "Encyclopaedia Iranica: Armenian displacement",
+          "url": "https://www.iranicaonline.org/articles/arakel-of-tabriz-armenian-historian/"
+        }
+      ]
+    },
+    {
+      "id": "queen-nzinga",
+      "century": "1600s",
+      "name": "Queen Nzinga",
+      "born": 1583,
+      "died": 1663,
+      "region": "Africa",
+      "profession": "Queen & Military Leader",
+      "traits": [
+        "head of state",
+        "military leader"
+      ],
+      "bio": "Nzinga, also known as Njinga, ruled Ndongo and Matamba in present-day Angola. She used diplomacy, shifting alliances and military resistance against Portuguese expansion. Her rule also participated in the slave trade; resistance to colonization did not make her an abolitionist.",
+      "work": {
+        "title": "Diplomacy and resistance",
+        "description": "She negotiated with Portuguese authorities and allied with the Dutch. She sheltered some people escaping enslavement while also deriving wealth from selling captives."
+      },
+      "location": {
+        "label": "Ndongo & Matamba (Angola)",
+        "lat": -9.5,
+        "lng": 15.2
+      },
+      "lifespanLabel": "c. 1583–1663",
+      "dateNote": "Her birth year is approximate; historical accounts give differing estimates.",
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "South African History Online: Njinga",
+          "url": "https://sahistory.org.za/people/njinga-ana-de-sousa"
+        }
+      ]
+    },
+    {
+      "id": "tokugawa-ieyasu",
+      "century": "1600s",
+      "name": "Tokugawa Ieyasu",
+      "born": 1543,
+      "died": 1616,
+      "region": "Asia",
+      "profession": "Shogun & Military Leader",
+      "traits": [
+        "military leader"
+      ],
+      "bio": "Tokugawa Ieyasu founded the Tokugawa shogunate in 1603. As shogun he exercised military and political power while Japan retained an emperor. The regime he established continued under his successors until 1868, during a period of relative internal stability.",
+      "work": {
+        "title": "The Tokugawa shogunate",
+        "description": "Ieyasu established a warrior government based in Edo. The urban growth and flourishing arts associated with the Edo period developed over generations, not solely during his lifetime."
+      },
+      "location": {
+        "label": "Edo (Tokyo), Japan",
+        "lat": 35.6762,
+        "lng": 139.6503
+      },
+      "dateNote": "1543 is the converted Western-calendar birth year; Japanese-calendar accounts may give 1542.",
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "World History Encyclopedia: Tokugawa Ieyasu",
+          "url": "https://www.worldhistory.org/Tokugawa_Ieyasu/"
+        },
+        {
+          "title": "Otsu: Tokugawa Ieyasu",
+          "url": "https://rekishihyakka.jp/en/culturalheritages/o-h008/"
+        }
+      ]
+    },
+    {
+      "id": "voltaire",
+      "century": "1700s",
+      "name": "Voltaire",
+      "born": 1694,
+      "died": 1778,
+      "region": "Europe",
+      "profession": "Writer & Philosopher",
+      "traits": [
+        "writer",
+        "philosopher",
+        "activist"
+      ],
+      "bio": "Voltaire, the pen name of François-Marie Arouet, was a French Enlightenment writer, historian and philosopher. He used satire and public campaigns to challenge religious intolerance and judicial injustice, including the conviction of Jean Calas.",
+      "work": {
+        "title": "Candide (1759)",
+        "description": "His most famous work, the satirical novella “Candide”, mocks blind optimism and explores human suffering and the abuse of power."
+      },
+      "location": {
+        "label": "Paris, France",
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Oxford Voltaire Foundation",
+          "url": "https://www.voltaire.ox.ac.uk/who-was-voltaire/"
+        }
+      ]
+    },
+    {
+      "id": "george-washington",
+      "century": "1700s",
+      "name": "George Washington",
+      "born": 1732,
+      "died": 1799,
+      "region": "North America",
+      "profession": "President & Military Leader",
+      "traits": [
+        "head of state",
+        "military leader"
+      ],
+      "bio": "George Washington commanded the Continental Army during the American Revolution and became the first president of the United States. He also enslaved people and depended on their labour at Mount Vernon. His role in founding a republic coexisted with his participation in slavery.",
+      "work": {
+        "title": "Leading the Continental Army",
+        "description": "His leadership during the American Revolutionary War was instrumental in securing independence from Great Britain."
+      },
+      "location": {
+        "label": "Mount Vernon, Virginia",
+        "lat": 38.7293,
+        "lng": -77.1073
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Mount Vernon: Biography",
+          "url": "https://www.mountvernon.org/george-washington/biography"
+        },
+        {
+          "title": "Mount Vernon: Slavery",
+          "url": "https://www.mountvernon.org/george-washington/slavery"
+        }
+      ]
+    },
+    {
+      "id": "wang-zhenyi",
+      "century": "1700s",
+      "name": "Wang Zhenyi",
+      "born": 1768,
+      "died": 1797,
+      "region": "Asia",
+      "profession": "Astronomer & Mathematician",
+      "traits": [
+        "scientist",
+        "mathematician",
+        "writer"
+      ],
+      "bio": "Wang Zhenyi was a Chinese astronomical and mathematical writer and poet of the Qing dynasty. She explained lunar eclipses and wrote about the Earth, mathematics and astronomy. Many of her writings were lost after her early death.",
+      "work": {
+        "title": "The Explanation of Lunar Eclipses",
+        "description": "Her writing explained lunar eclipses, making astronomical reasoning part of her wider work in mathematics and the study of the heavens."
+      },
+      "location": {
+        "label": "Jiangning (Nanjing), China",
+        "lat": 32.0603,
+        "lng": 118.7969
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Hong Kong Space Museum: Wang Zhenyi",
+          "url": "https://hk.space.museum/en/web/spm/resources/curators-blog/2021/03/wang-zhenyi-an-extraordinary-woman-astronomer-from-the-qing-dynasty.html"
+        }
+      ]
+    },
+    {
+      "id": "ibrahim-muteferrika",
+      "century": "1700s",
+      "name": "Ibrahim Muteferrika",
+      "born": 1674,
+      "died": 1747,
+      "region": "Middle East",
+      "profession": "Printer & Historian",
+      "traits": [
+        "writer",
+        "innovator"
+      ],
+      "bio": "An Ottoman diplomat, historian and publisher, Ibrahim Muteferrika co-founded a pioneering Ottoman Turkish printing press in Istanbul in 1727. It was not the empire's first Arabic-script press: an earlier one operated in Aleppo around 1706.",
+      "work": {
+        "title": "The Vankulu dictionary (1729)",
+        "description": "His press's first book was a two-volume Arabic–Turkish dictionary, known as Vankulu Lügati, published in 1729."
+      },
+      "location": {
+        "label": "Istanbul, Ottoman Empire",
+        "lat": 41.0082,
+        "lng": 28.9784
+      },
+      "lifespanLabel": "born between 1670 and 1674; died 1747",
+      "dateNote": "The TDV biography estimates birth between 1670 and 1674 and supports 1747 rather than the older 1745 death date. The timeline uses 1674 as a plotting reference.",
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Library of Congress: Muteferrika's press",
+          "url": "https://blogs.loc.gov/law/2023/08/ibrahim-muteferrika-first-muslim-printer-of-the-ottoman-empire/"
+        },
+        {
+          "title": "TDV: Biography and dates",
+          "url": "https://islamansiklopedisi.org.tr/ibrahim-muteferrika"
+        }
+      ]
+    },
+    {
+      "id": "anton-amo",
+      "century": "1700s",
+      "name": "Anton Wilhelm Amo",
+      "born": 1703,
+      "died": null,
+      "region": "Africa/Europe",
+      "profession": "Philosopher",
+      "traits": [
+        "philosopher",
+        "writer"
+      ],
+      "bio": "Born in present-day Ghana and taken to Europe as an enslaved child, Anton Wilhelm Amo earned a philosophy doctorate at Wittenberg in 1734. He taught at German universities and wrote about knowledge, the mind and its relationship to the body.",
+      "work": {
+        "title": "Treatise on the Art of Philosophizing Soberly and Accurately",
+        "description": "Published in 1738, this work examined the principles of logic and scientific method, advocating clear and rational thinking."
+      },
+      "location": {
+        "label": "Halle, Prussia",
+        "lat": 51.4969,
+        "lng": 11.9688
+      },
+      "deathUnknown": true,
+      "lastKnownAlive": 1753,
+      "lifespanLabel": "c. 1703–after 1753",
+      "dateNote": "His exact birth and death years are uncertain. The timeline ends at the last documented living year, 1753, not his death; Halle's research page records conflicting later dates.",
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "University of Halle: Amo research",
+          "url": "https://www.amo.uni-halle.de/?lang=en"
+        },
+        {
+          "title": "Stanford Encyclopedia: German philosophy before Kant",
+          "url": "https://plato.stanford.edu/archives/spr2026/entries/18thGerman-preKant/"
+        }
+      ]
+    },
+    {
+      "id": "napoleon",
+      "century": "1800s",
+      "name": "Napoleon Bonaparte",
+      "born": 1769,
+      "died": 1821,
+      "region": "Europe",
+      "profession": "Emperor & Military Leader",
+      "traits": [
+        "head of state",
+        "military leader"
+      ],
+      "bio": "Napoleon Bonaparte rose from French military command to First Consul and emperor. His government introduced the influential Civil Code but also concentrated power and restored slavery in French colonies. The failed Russian campaign of 1812 preceded his abdication and exile to Elba in 1814. After returning in 1815 and losing at Waterloo, he was exiled to Saint Helena.",
+      "work": {
+        "title": "Coronation as Emperor (1804)",
+        "description": "Following the coup of 1799, Napoleon became First Consul. In 1804 he crowned himself emperor at Notre-Dame in Paris."
+      },
+      "location": {
+        "label": "Paris, France",
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Fondation Napoléon: Biography",
+          "url": "https://www.napoleon.org/wp-content/uploads/2019/03/cm1-bio-napoleon-bonaparte-complete-mars-2019-4.pdf"
+        },
+        {
+          "title": "Fondation Napoléon: Colonial slavery",
+          "url": "https://www.napoleon.org/en/history-of-the-two-empires/articles/bullet-point-9-napoleon-bring-back-slavery/"
+        }
+      ]
+    },
+    {
+      "id": "bahaullah",
+      "century": "1800s",
+      "name": "Bahá'u'lláh",
+      "born": 1817,
+      "died": 1892,
+      "region": "Middle East",
+      "profession": "Religious Founder & Philosopher",
+      "traits": [
+        "philosopher",
+        "writer",
+        "activist"
+      ],
+      "bio": "Bahá'u'lláh founded the Baháʼí Faith, whose teachings emphasize the unity of humanity, religion and God. Following imprisonment in Tehran in 1852 and banishment in 1853, he spent the remainder of his life in exile, including periods of imprisonment. His writings address education and peace as well as religious teachings.",
+      "work": {
+        "title": "The Kitáb-i-Aqdas",
+        "description": "Among his many writings, the Kitáb-i-Aqdas (“The Most Holy Book”) sets out the laws and principles of the Baháʼí Faith."
+      },
+      "location": {
+        "label": "Acre (ʻAkká), Ottoman Syria",
+        "lat": 32.9281,
+        "lng": 35.0765
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Bahá'í community: Historical account",
+          "url": "https://news.bahai.org/media-information/brief-history"
+        },
+        {
+          "title": "Bahá'í Reference Library: Kitáb-i-Aqdas",
+          "url": "https://www.bahai.org/library/authoritative-texts/bahaullah/kitab-i-aqdas/17"
+        }
+      ]
+    },
+    {
+      "id": "simon-bolivar",
+      "century": "1800s",
+      "name": "Simón Bolívar",
+      "born": 1783,
+      "died": 1830,
+      "region": "Latin America",
+      "profession": "Revolutionary Leader",
+      "traits": [
+        "head of state",
+        "military leader",
+        "activist"
+      ],
+      "bio": "Simón Bolívar was a Venezuelan military and political leader in the struggles for independence from Spanish rule in South America. His campaigns and political projects involved territories now including Venezuela, Colombia, Ecuador, Peru and Bolivia. His writings debated independence, government and regional unity.",
+      "work": {
+        "title": "The Jamaica Letter (1815)",
+        "description": "His “Jamaica Letter” set out his vision of a united and independent South America, free from Spanish colonial rule."
+      },
+      "location": {
+        "label": "Caracas, Venezuela",
+        "lat": 10.4806,
+        "lng": -66.9036
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Brown University: Jamaica Letter",
+          "url": "https://library.brown.edu/create/modernlatinamerica/chapters/chapter-2-the-colonial-foundations/primary-documents-with-accompanying-discussion-questions/document-2-simon-bolivar-letter-from-jamaica-september-6-1815/"
+        },
+        {
+          "title": "UNESCO: Jamaica Letter",
+          "url": "https://www.unesco.org/en/memory-world/lac/reply-south-american-gentleman-island-jamaica-letter-simon-bolivar-1815"
+        }
+      ]
+    },
+    {
+      "id": "liu-mingchuan",
+      "century": "1800s",
+      "name": "Liu Mingchuan",
+      "born": 1836,
+      "died": 1896,
+      "region": "Asia",
+      "profession": "Governor & Military Leader",
+      "traits": [
+        "military leader",
+        "innovator"
+      ],
+      "bio": "Liu Mingchuan was a Qing general and the first provincial governor of Taiwan. His administration promoted railway, telegraph and postal infrastructure and schools for languages and technical subjects. He was a provincial official, not a head of state.",
+      "work": {
+        "title": "Infrastructure in Taiwan",
+        "description": "As governor, he supported railway construction between Taipei and Keelung and the development of telegraph, postal and educational services."
+      },
+      "location": {
+        "label": "Taipei, Taiwan",
+        "lat": 25.033,
+        "lng": 121.5654
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "National Tsing Hua University: Liu Mingchuan",
+          "url": "https://www.ee.nthu.edu.tw/~sdyang/BioInfo/Bio_Liu_MC.htm"
+        }
+      ]
+    },
+    {
+      "id": "ada-lovelace",
+      "century": "1800s",
+      "name": "Ada Lovelace",
+      "born": 1815,
+      "died": 1852,
+      "region": "Europe",
+      "profession": "Mathematician & Computer Pioneer",
+      "traits": [
+        "scientist",
+        "mathematician",
+        "writer",
+        "innovator"
+      ],
+      "bio": "Ada Lovelace was an English mathematical writer who collaborated with Charles Babbage on his proposed Analytical Engine. Her 1843 notes explored how a machine might manipulate symbols and even compose music. She is often called the first programmer, though historians debate the extent and originality of the collaborators' contributions.",
+      "work": {
+        "title": "Notes on the Analytical Engine (1843)",
+        "description": "Her notes included a published step-by-step procedure for computing Bernoulli numbers with Babbage's proposed Analytical Engine."
+      },
+      "location": {
+        "label": "London, England",
+        "lat": 51.5072,
+        "lng": -0.1276
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Computer History Museum: Ada Lovelace",
+          "url": "https://www.computerhistory.org/babbage/adalovelace"
+        }
+      ]
+    },
+    {
+      "id": "albert-einstein",
+      "century": "1900s",
+      "name": "Albert Einstein",
+      "born": 1879,
+      "died": 1955,
+      "region": "Europe",
+      "profession": "Theoretical Physicist",
+      "traits": [
+        "scientist",
+        "mathematician",
+        "writer"
+      ],
+      "bio": "A German-born theoretical physicist, Einstein developed the theory of relativity, one of the two pillars of modern physics. He explained the photoelectric effect, the emission of electrons when light shines on a metal, and Brownian motion, the random movement of particles in a fluid, which provided evidence for atoms and molecules. His work on the photoelectric effect earned him the 1921 Nobel Prize in Physics and helped lay the foundation of quantum theory.",
+      "work": {
+        "title": "The theory of relativity",
+        "description": "Einstein is best known for his mass–energy equivalence formula E = mc², often called the world's most famous equation."
+      },
+      "location": {
+        "label": "Berlin, Germany",
+        "lat": 52.52,
+        "lng": 13.405
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Nobel Foundation: Einstein",
+          "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/facts/"
+        }
+      ]
+    },
+    {
+      "id": "lech-walesa",
+      "century": "1900s",
+      "name": "Lech Wałęsa",
+      "born": 1943,
+      "died": null,
+      "region": "Europe",
+      "profession": "President & Labor Leader",
+      "traits": [
+        "activist",
+        "head of state"
+      ],
+      "bio": "Lech Wałęsa was an electrician and trade-union leader who led negotiations during the Gdańsk shipyard strikes in 1980. As a leader of Solidarity, he helped challenge communist rule in Poland and received the Nobel Peace Prize in 1983.",
+      "work": {
+        "title": "The Solidarity movement",
+        "description": "Wałęsa helped guide Poland's transition away from communist rule and was elected president in the country's 1990 popular presidential election."
+      },
+      "location": {
+        "label": "Gdańsk, Poland",
+        "lat": 54.352,
+        "lng": 18.6466
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Nobel Foundation: Wałęsa",
+          "url": "https://www.nobelprize.org/prizes/peace/1983/walesa/facts/"
+        },
+        {
+          "title": "Polish presidency: Belweder history",
+          "url": "https://www.president.pl/en/archives/andrzej-duda/presidential-residences/belweder"
+        }
+      ]
+    },
+    {
+      "id": "fdr",
+      "century": "1900s",
+      "name": "Franklin D. Roosevelt",
+      "born": 1882,
+      "died": 1945,
+      "region": "North America",
+      "profession": "President",
+      "traits": [
+        "head of state"
+      ],
+      "bio": "Commonly known as FDR, Roosevelt was the 32nd President of the United States, serving from 1933 until his death in 1945, the only U.S. president elected to four terms. He responded to the Great Depression with the New Deal and led the United States through most of World War II after the attack on Pearl Harbor in 1941.",
+      "work": {
+        "title": "The New Deal",
+        "description": "The Social Security Act (1935) established old-age benefits, unemployment insurance and public-assistance programmes. The Fair Labor Standards Act (1938) introduced wage, hours and child-labour protections for covered workers. Social Security disability insurance followed in 1956, after Roosevelt's presidency."
+      },
+      "location": {
+        "label": "Washington, D.C.",
+        "lat": 38.8977,
+        "lng": -77.0365
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "FDR Presidential Library: Biography",
+          "url": "https://www.fdrlibrary.org/fdr-biography"
+        },
+        {
+          "title": "SSA: Disability insurance history",
+          "url": "https://www.ssa.gov/policy/docs/ssb/v66n3/v66n3p1.html"
+        },
+        {
+          "title": "Department of Labor: The 1938 Act",
+          "url": "https://www.dol.gov/general/aboutdol/history/flsa1938"
+        }
+      ]
+    },
+    {
+      "id": "nelson-mandela",
+      "century": "1900s",
+      "name": "Nelson Mandela",
+      "born": 1918,
+      "died": 2013,
+      "region": "Africa",
+      "profession": "President & Activist",
+      "traits": [
+        "activist",
+        "head of state"
+      ],
+      "bio": "A South African anti-apartheid revolutionary, political leader, and philanthropist, Mandela served as President of South Africa, the country's first Black head of state and the first elected in a fully representative democratic election. His government focused on dismantling the legacy of apartheid by fostering racial reconciliation.",
+      "work": {
+        "title": "Robben Island (1964–1982)",
+        "description": "Mandela spent approximately 18 of his 27 years in prison on Robben Island, enduring harsh conditions with fellow political prisoners. This long imprisonment followed a brief stay there in 1963."
+      },
+      "location": {
+        "label": "Robben Island, South Africa",
+        "lat": -33.8067,
+        "lng": 18.3662
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Nelson Mandela Foundation: Biography",
+          "url": "https://www.nelsonmandela.org/biography"
+        }
+      ]
+    },
+    {
+      "id": "gandhi",
+      "century": "1900s",
+      "name": "Mahatma Gandhi",
+      "born": 1869,
+      "died": 1948,
+      "region": "Asia",
+      "profession": "Independence Leader & Philosopher",
+      "traits": [
+        "activist",
+        "philosopher",
+        "writer"
+      ],
+      "bio": "Mahatma Gandhi was a major leader of the Indian independence movement who advocated nonviolent civil resistance to British colonial rule. His campaigns mobilized widespread participation, alongside the contributions of many other leaders and movements to independence in 1947.",
+      "work": {
+        "title": "The Salt March (1930)",
+        "description": "Gandhi left Sabarmati Ashram with a small group, commonly counted as 78 companions, and marched to Dandi to challenge the British salt monopoly. The campaign drew much wider public participation."
+      },
+      "location": {
+        "label": "Ahmedabad (Sabarmati Ashram), India",
+        "lat": 23.0607,
+        "lng": 72.5809
+      },
+      "reviewedOn": "2026-09-16",
+      "sources": [
+        {
+          "title": "Odisha government: Salt Satyagraha",
+          "url": "https://magazines.odisha.gov.in/orissareview/2022/August/engpdf/page25-30.pdf"
+        }
+      ]
+    }
+  ]
+}

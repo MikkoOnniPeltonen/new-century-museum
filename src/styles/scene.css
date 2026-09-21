@@ -1,0 +1,234 @@
+/*
+ * The century backdrop is pure CSS: every layer reads the century tokens,
+ * so a data-century change crossfades the whole scene. JS only feeds the
+ * pointer position (--px / --py, -1..1) for parallax.
+ */
+
+/* Era motifs, shared by the global scene and the hall door previews */
+.motif-1600s {
+  --tile: 120px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23ffe3a3' stroke-width='1.1'><path d='M60 8c9 16 27 22 27 40 0 14-12 22-27 30-15-8-27-16-27-30 0-18 18-24 27-40Z'/><path d='M60 78c6 10 18 14 18 24H42c0-10 12-14 18-24Z'/><circle cx='60' cy='46' r='5'/><path d='M0 60c14 0 20 8 20 18M120 60c-14 0-20 8-20 18M0 60c14 0 20-8 20-18M120 60c-14 0-20-8-20-18'/></g></svg>");
+}
+
+.motif-1700s {
+  --tile: 200px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><g fill='none' stroke='%23fff0c9' stroke-width='.8'><circle cx='100' cy='100' r='72'/><circle cx='100' cy='100' r='44' stroke-dasharray='2 5'/><path d='M100 18v164M18 100h164M42 42l116 116M158 42 42 158'/><path d='M40 150 72 120 96 132 128 86 160 96' stroke-width='.6'/></g><g fill='%23fff0c9'><circle cx='40' cy='150' r='2'/><circle cx='72' cy='120' r='1.4'/><circle cx='96' cy='132' r='1.8'/><circle cx='128' cy='86' r='2.2'/><circle cx='160' cy='96' r='1.4'/><circle cx='30' cy='30' r='1'/><circle cx='176' cy='20' r='1.2'/></g></svg>");
+}
+
+.motif-1800s {
+  --tile: 180px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'><g fill='none' stroke='%23ffbe7d'><circle cx='58' cy='58' r='27' stroke-width='9' stroke-dasharray='6.5 5.5'/><circle cx='58' cy='58' r='12' stroke-width='2'/><circle cx='58' cy='58' r='3' stroke-width='2'/><circle cx='126' cy='122' r='19' stroke-width='7' stroke-dasharray='5 4.6'/><circle cx='126' cy='122' r='7' stroke-width='2'/><path d='M0 170h180M0 176h180' stroke-width='.6' stroke-dasharray='1 6'/></g></svg>");
+}
+
+.motif-1900s {
+  --tile: 160px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><g fill='none' stroke='%23f6dcad' stroke-width='1'><path d='M80 160V52M80 160 26 72M80 160l54-88M80 160 2 118M80 160l78-42'/><path d='M24 160a56 56 0 0 1 112 0M44 160a36 36 0 0 1 72 0M62 160a18 18 0 0 1 36 0'/><path d='M0 4h160M0 10h160' stroke-width='.6'/></g></svg>");
+}
+
+@layer components {
+  .scene {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background: var(--c-deep);
+  }
+
+  .scene__layer {
+    position: absolute;
+    inset: -8%;
+  }
+
+  .scene__base {
+    background:
+      radial-gradient(90% 60% at 50% -10%, color-mix(in oklab, var(--c-glow) 32%, transparent), transparent 70%),
+      radial-gradient(70% 55% at 90% 110%, color-mix(in oklab, var(--c-sky) 70%, transparent), transparent 70%),
+      radial-gradient(60% 50% at 0% 100%, color-mix(in oklab, var(--c-mid) 80%, transparent), transparent 70%),
+      linear-gradient(165deg, var(--c-mid) 0%, var(--c-deep) 72%);
+    translate: calc(var(--px, 0) * -10px) calc(var(--py, 0) * -10px);
+  }
+
+  .scene__motif {
+    opacity: 0;
+    background-repeat: repeat;
+    background-size: var(--tile) var(--tile);
+    mix-blend-mode: soft-light;
+    transition: opacity 1.4s ease;
+    translate: calc(var(--px, 0) * -24px) calc(var(--py, 0) * -24px);
+    animation: motif-drift 90s linear infinite;
+  }
+
+  html[data-century="1600s"] .scene__motif.motif-1600s,
+  html[data-century="1700s"] .scene__motif.motif-1700s,
+  html[data-century="1800s"] .scene__motif.motif-1800s,
+  html[data-century="1900s"] .scene__motif.motif-1900s {
+    opacity: 0.18;
+  }
+
+  .scene__rays {
+    position: absolute;
+    left: calc(50% - 100vmax);
+    top: calc(-20% - 100vmax);
+    width: 200vmax;
+    height: 200vmax;
+    background: repeating-conic-gradient(
+      color-mix(in oklab, var(--c-glow) 14%, transparent) 0deg 5deg,
+      transparent 5deg 17deg
+    );
+    mask: radial-gradient(closest-side, #000 10%, transparent 72%);
+    mix-blend-mode: screen;
+    opacity: 0.32;
+    translate: calc(var(--px, 0) * -36px) calc(var(--py, 0) * -18px);
+    animation: rays-spin 180s linear infinite;
+  }
+
+  .scene__glow {
+    background: radial-gradient(42% 36% at 50% 16%, color-mix(in oklab, var(--c-glow) 30%, transparent), transparent 72%);
+    animation: glow-breathe 7s ease-in-out infinite alternate;
+  }
+
+  html[data-century="1600s"] .scene__glow {
+    animation: candle 2.6s ease-in-out infinite alternate;
+  }
+
+  .scene__dust {
+    position: absolute;
+    inset: 0;
+    translate: calc(var(--px, 0) * -48px) calc(var(--py, 0) * -30px);
+  }
+
+  .scene__dust span {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--s);
+    height: var(--s);
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in oklab, var(--c-glow) 85%, white), transparent 70%);
+    opacity: 0;
+    animation: dust-rise var(--d) ease-in-out var(--delay) infinite;
+  }
+
+  .scene__grain {
+    position: absolute;
+    inset: -50%;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+    opacity: 0.045;
+    mix-blend-mode: overlay;
+    animation: grain-shift 1.2s steps(6) infinite;
+  }
+
+  .scene__vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 90% at 50% 40%, transparent 48%, rgb(0 0 0 / 0.72) 100%);
+  }
+
+  html[data-century="1900s"] .scene__vignette {
+    animation: film-flicker 5s steps(1, end) infinite;
+  }
+}
+
+@keyframes motif-drift {
+  to {
+    background-position: calc(var(--tile) * 2) var(--tile);
+  }
+}
+
+@keyframes rays-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes glow-breathe {
+  from {
+    opacity: 0.65;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes candle {
+  0% {
+    opacity: 0.7;
+    scale: 1;
+  }
+  35% {
+    opacity: 0.95;
+  }
+  55% {
+    opacity: 0.8;
+    scale: 1.02;
+  }
+  100% {
+    opacity: 1;
+    scale: 0.99;
+  }
+}
+
+@keyframes dust-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--dx), -140px, 0);
+  }
+}
+
+@keyframes grain-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3%, 2%);
+  }
+  40% {
+    transform: translate(2%, -4%);
+  }
+  60% {
+    transform: translate(-4%, -1%);
+  }
+  80% {
+    transform: translate(3%, 3%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes film-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  47% {
+    opacity: 0.9;
+  }
+  48% {
+    opacity: 1;
+  }
+  73% {
+    opacity: 0.94;
+  }
+  74% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene *,
+  .scene {
+    translate: none !important;
+  }
+}

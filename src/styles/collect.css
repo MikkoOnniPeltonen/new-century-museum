@@ -1,0 +1,249 @@
+@layer components {
+  /* Gilded picture frame, re-evaluated per element so [data-theme] cards get their own gold */
+  .gilt {
+    background: linear-gradient(
+      145deg,
+      color-mix(in oklab, var(--c-accent) 78%, white) 0%,
+      color-mix(in oklab, var(--c-accent) 55%, var(--c-mid)) 42%,
+      color-mix(in oklab, var(--c-accent) 92%, white) 68%,
+      color-mix(in oklab, var(--c-accent) 50%, black) 100%
+    );
+  }
+
+  .collect {
+    display: grid;
+    gap: 2rem;
+    padding-block: 2.5rem 1rem;
+  }
+
+  .collect__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+
+  .collect__title {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 600;
+    line-height: 1;
+    margin-top: 0.35rem;
+  }
+
+  .collect__lede {
+    margin-top: 0.5rem;
+    color: var(--color-ink-soft);
+  }
+
+  .collect__status {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .room-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-ink-soft);
+  }
+
+  .room-counter__dots {
+    display: inline-flex;
+    gap: 0.3rem;
+  }
+
+  .room-counter__dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    border: 1px solid color-mix(in oklab, var(--c-accent) 70%, transparent);
+    transition: background-color 0.4s, box-shadow 0.4s, scale 0.4s var(--ease-spring);
+  }
+
+  .room-counter__dot.is-filled {
+    background: var(--c-accent);
+    box-shadow: 0 0 10px var(--c-glow);
+    scale: 1.15;
+  }
+
+  .carousel {
+    display: grid;
+    justify-items: center;
+    gap: 1.25rem;
+  }
+
+  .carousel__stage {
+    position: relative;
+    width: 100%;
+    height: clamp(27rem, 70vw, 35rem);
+    perspective: 1600px;
+    touch-action: pan-y;
+    cursor: grab;
+    outline: none;
+    border-radius: 1.5rem;
+  }
+
+  .carousel__stage:active {
+    cursor: grabbing;
+  }
+
+  .carousel__stage:focus-visible {
+    outline: 2px solid var(--c-glow);
+    outline-offset: 6px;
+  }
+
+  .collect-card {
+    --card-width: min(76vw, 22rem);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--card-width);
+    height: 100%;
+    margin-left: calc(var(--card-width) / -2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    user-select: none;
+  }
+
+  .collect-card:not(.is-active) {
+    cursor: pointer;
+  }
+
+  .collect-card.is-hidden {
+    pointer-events: none;
+  }
+
+  .collect-card__frame {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    padding: 0.55rem;
+    border-radius: 1.4rem;
+    box-shadow:
+      0 40px 70px -35px #000,
+      inset 0 0 0 1px rgb(255 255 255 / 0.3);
+    transition: box-shadow 0.5s;
+  }
+
+  .collect-card.is-active .collect-card__frame {
+    box-shadow:
+      0 50px 90px -40px #000,
+      0 0 70px -12px color-mix(in oklab, var(--c-glow) 50%, transparent),
+      inset 0 0 0 1px rgb(255 255 255 / 0.35);
+  }
+
+  .collect-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    background: var(--c-deep);
+  }
+
+  .collect-card__caption {
+    text-align: center;
+    transition: opacity 0.4s;
+  }
+
+  .collect-card:not(.is-active) .collect-card__caption {
+    opacity: 0;
+  }
+
+  .collect-card__caption h2 {
+    font-size: 1.85rem;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  .collect-card__caption p {
+    margin-top: 0.2rem;
+    font-size: 0.88rem;
+    color: var(--color-ink-muted);
+  }
+
+  /* Wax seal stamped on collected figures */
+  .seal {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.1rem;
+    display: grid;
+    place-items: center;
+    width: 5.6rem;
+    height: 5.6rem;
+    padding: 0.7rem;
+    border-radius: 50%;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffe9e2;
+    background: radial-gradient(circle at 35% 30%, #d9564a, #8f1d18 70%);
+    box-shadow:
+      0 10px 22px -6px rgb(0 0 0 / 0.65),
+      inset 0 0 0 4px #8f1d18,
+      inset 0 0 0 5px rgb(255 255 255 / 0.22);
+  }
+
+  .carousel__controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .carousel__dots {
+    display: flex;
+    gap: 0.15rem;
+  }
+
+  /* A 24px+ touch target with the small visible pill drawn inside it */
+  .carousel__dot {
+    display: grid;
+    place-items: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    transition: width 0.4s var(--ease-spring);
+  }
+
+  .carousel__dot::before {
+    content: "";
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.22);
+    transition:
+      width 0.4s var(--ease-spring),
+      background-color 0.3s;
+  }
+
+  .carousel__dot.is-collected::before {
+    background: color-mix(in oklab, var(--c-accent) 55%, transparent);
+  }
+
+  .carousel__dot.is-active {
+    width: 2.4rem;
+  }
+
+  .carousel__dot.is-active::before {
+    width: 2rem;
+    background: var(--c-accent);
+  }
+
+  .collect__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+}

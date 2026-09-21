@@ -1,0 +1,188 @@
+/* Press feedback: ink ripple from the press point */
+.ripple {
+  position: absolute;
+  left: var(--rx);
+  top: var(--ry);
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(255 255 255 / 0.8), rgb(255 255 255 / 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+  animation: ripple 0.7s var(--ease-out-expo) forwards;
+}
+
+.btn--ghost .ripple,
+.btn--quiet .ripple {
+  background: radial-gradient(circle, color-mix(in oklab, var(--c-glow) 75%, transparent), transparent 70%);
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(var(--rs, 28));
+    opacity: 0;
+  }
+}
+
+/* Press feedback: glow ring (outline is not clipped by overflow: hidden) */
+.is-pressed {
+  animation: press-ring 0.55s ease-out;
+}
+
+@keyframes press-ring {
+  from {
+    outline: 2px solid color-mix(in oklab, var(--c-glow) 85%, transparent);
+    outline-offset: 0;
+  }
+  to {
+    outline: 2px solid transparent;
+    outline-offset: 14px;
+  }
+}
+
+/* Particle bursts */
+.burst-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.burst {
+  position: absolute;
+  left: var(--bx);
+  top: var(--by);
+}
+
+.burst i {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+  border-radius: var(--radius);
+  background: var(--color);
+  box-shadow: 0 0 10px color-mix(in oklab, var(--color) 60%, transparent);
+  animation: burst var(--life, 0.85s) cubic-bezier(0.12, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes burst {
+  0% {
+    transform: rotate(var(--angle)) translateX(4px) scale(1.2);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--angle)) translateX(var(--dist)) scale(0.25);
+    opacity: 0;
+  }
+}
+
+/* Answer feedback */
+.shake {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    translate: -1px 0;
+  }
+  20%,
+  80% {
+    translate: 3px 0;
+  }
+  30%,
+  50%,
+  70% {
+    translate: -6px 0;
+  }
+  40%,
+  60% {
+    translate: 6px 0;
+  }
+}
+
+.glow-pop {
+  animation: glow-pop 0.9s ease-out;
+}
+
+@keyframes glow-pop {
+  from {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--c-glow) 80%, transparent);
+  }
+  to {
+    box-shadow: 0 0 0 28px transparent;
+  }
+}
+
+/* Animated sound bars for the audio toggle */
+.sound-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.sound-bars i {
+  width: 3px;
+  height: 100%;
+  border-radius: 2px;
+  background: currentColor;
+  transform-origin: bottom;
+  animation: sound-bar 0.9s ease-in-out infinite alternate;
+}
+
+.sound-bars i:nth-child(2) {
+  animation-delay: -0.35s;
+}
+
+.sound-bars i:nth-child(3) {
+  animation-delay: -0.65s;
+}
+
+.sound-bars.is-muted i {
+  animation: none;
+  transform: scaleY(0.25);
+}
+
+@keyframes sound-bar {
+  from {
+    transform: scaleY(0.25);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.94);
+  }
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+}

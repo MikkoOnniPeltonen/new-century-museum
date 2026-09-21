@@ -1,0 +1,204 @@
+@layer components {
+  .intro {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    perspective: 1400px;
+    color: var(--color-ink);
+  }
+
+  .intro.is-closing {
+    pointer-events: none;
+  }
+
+  .intro__curtains {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    transform-style: preserve-3d;
+  }
+
+  /* Velvet: vertical folds over a century-tinted gradient */
+  .intro__curtain {
+    position: relative;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgb(0 0 0 / 0.3) 0 14px,
+        rgb(255 255 255 / 0.035) 14px 30px,
+        rgb(0 0 0 / 0.18) 30px 46px
+      ),
+      radial-gradient(130% 90% at 50% 0%, color-mix(in oklab, var(--c-mid) 85%, #000), color-mix(in oklab, var(--c-deep) 88%, #000));
+    backface-visibility: hidden;
+  }
+
+  .intro__curtain::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 8px;
+    background: linear-gradient(90deg, transparent, var(--c-accent), transparent);
+    opacity: 0.55;
+  }
+
+  /* The seam is a soft shadow where the curtains meet, not a line through the title */
+  .intro__curtain--left {
+    transform-origin: left center;
+    box-shadow:
+      inset -36px 0 48px -32px rgb(0 0 0 / 0.9),
+      inset 0 -140px 160px -60px #000;
+  }
+
+  .intro__curtain--right {
+    transform-origin: right center;
+    box-shadow:
+      inset 36px 0 48px -32px rgb(0 0 0 / 0.9),
+      inset 0 -140px 160px -60px #000;
+  }
+
+  .intro__stage {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: 2.25rem;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .intro__lines {
+    display: grid;
+    place-items: center;
+    min-height: clamp(16rem, 42vh, 24rem);
+  }
+
+  .intro__line {
+    grid-area: 1 / 1;
+  }
+
+  .intro__line--welcome {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.1em 0.3em;
+    max-width: 18ch;
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .intro__line--explore {
+    display: grid;
+    justify-items: center;
+    gap: 0.5rem;
+  }
+
+  .intro__explore-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0 0.35em;
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+    font-weight: 600;
+    line-height: 1.05;
+  }
+
+  .intro-word,
+  .intro-letter {
+    display: inline-block;
+  }
+
+  .intro-with {
+    display: inline-block;
+    font-style: italic;
+    color: var(--color-ink-soft);
+  }
+
+  /* Glow lives on a pseudo-element outside the clipping window, so it has no hard edges */
+  .intro__odometer {
+    position: relative;
+    isolation: isolate;
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 15vw, 10rem);
+    font-weight: 700;
+    font-variant-numeric: lining-nums tabular-nums;
+    line-height: 1;
+    color: var(--c-accent);
+  }
+
+  .intro__odometer::before {
+    content: "";
+    position: absolute;
+    inset: -40% -25%;
+    z-index: -1;
+    background: radial-gradient(closest-side, color-mix(in oklab, var(--c-glow) 34%, transparent), transparent);
+    filter: blur(14px);
+    pointer-events: none;
+  }
+
+  .intro__odometer-window {
+    display: block;
+    height: 1em;
+    overflow: hidden;
+    text-shadow: 0 0 12px color-mix(in oklab, var(--c-glow) 55%, transparent);
+  }
+
+  .intro__odometer-strip {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .intro__odometer-strip > span {
+    height: 1em;
+  }
+
+  .intro-centuries {
+    font-size: clamp(0.8rem, 2vw, 1.05rem);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+  }
+
+  .intro__invite {
+    display: grid;
+    justify-items: center;
+    gap: 0.75rem;
+  }
+
+  .intro__hint {
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+  }
+
+  .intro__skip {
+    position: absolute;
+    right: 1.25rem;
+    bottom: 1.25rem;
+  }
+
+  .intro kbd {
+    font: inherit;
+    font-size: 0.68rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.35rem;
+    border: 1px solid rgb(255 255 255 / 0.25);
+    opacity: 0.8;
+  }
+
+  /* Hidden until the timeline reveals them */
+  .intro-word,
+  .intro-letter,
+  .intro-with,
+  .intro__odometer,
+  .intro-centuries,
+  .intro__invite {
+    opacity: 0;
+  }
+}

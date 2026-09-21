@@ -1,283 +1,133 @@
-# 🏛️ Century Museum
+# Century Museum
 
-An immersive, interactive web application that takes users on a cinematic journey through history, exploring influential figures from the 17th to 20th centuries.
+An interactive museum of twenty people who shaped the 17th to 20th centuries. Walk through a cinematic
+entrance, open a wing for each century, collect figures into your own rooms, find them on an antique world
+map, trace their lives on a timeline and test yourself in four games, with a soundscape for every age.
 
-## ✨ Features
+Created by **Mikko Peltonen in collaboration with OpenAI Codex**. Mikko provides the concept,
+creative direction and feedback; Codex assists with implementation, visual design, animation,
+testing and research. This is a human-directed creative project, not an AI API demo.
+The current app does not require an AI API key.
 
-### Core Experience
-- **Cinematic Landing Page** - Animated intro sequence with word animations and transitions
-- **Interactive Museum Rooms** - Four century-themed rooms (1600s-1900s) with unique visual identities
-- **Historical Persons Gallery** - Carousel-based selection system with 20 historically diverse figures
-- **Immersive Room Views** - Flip-card interactions revealing biographies and notable works
-- **Educational Games** - Three engaging game modes to test historical knowledge
+## Features
 
-### Professional Enhancements
-- **Design System** - Consistent color palette, typography, and spacing variables
-- **Notification System** - Simple, elegant notifications for user feedback
-- **Custom Modals** - Elegant modal dialogs replacing browser alerts
-- **Loading States** - Skeleton screens and loading indicators
-- **Lazy Loading** - Optimized image loading with intersection observer
-- **Responsive Design** - Mobile-first approach with breakpoint optimization
-- **Accessibility** - WCAG 2.1 AA compliance with ARIA labels and keyboard navigation
+- **The next wing — 2000s.** Scroll below the historical wings to build pressure in a sealed doorway,
+  or press and hold it with a pointer or Enter. The seal breaks into `/next-wing`; a direct entrance
+  and reduced-motion transition are also available. Four fictional present-day challenges offer
+  three decisions each, consequences, and a personalised exhibit saved locally in this browser.
+- **Cinematic entrance.** A single, skippable animation timeline (Esc or the Skip button). It plays once per
+  session and has a short version for reduced motion.
+- **Four century wings.** Each century has its own CSS-drawn scene: animated gradients, era patterns, light
+  rays, drifting dust, film grain and pointer parallax. The whole scene crossfades when the century changes.
+- **Collect and exhibit.** A swipeable carousel with a wax-seal stamp for chosen figures. Rooms show gilded
+  flip cards with biographies and notable works.
+- **Games.** Memory, Trait Matcher, Century Pairing and Time Jumpers. Figures from your room appear in every
+  round, and best scores are saved.
+- **Timeline.** Lifespans from 1540 to 2000 with zoom, drag-to-pan and keyboard navigation.
+- **World map.** Pins for the figures in each century's room. Modern borders appear only on the 20th-century map.
+- **Soundscapes.** A looping, crossfading track per century, plus interface sounds generated in code.
+- **Feedback.** Spring-animated buttons with ripples, glow rings and particle bursts.
+- **Accessible by default.** Real buttons and links, native dialogs, keyboard support throughout, a skip link,
+  screen-reader announcements and reduced-motion support.
 
-## 🚀 Getting Started
+## Getting started
 
-### Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Local web server (Live Server, Python SimpleHTTPServer, or similar)
+Requires Node.js 20.19+ or 22.12+.
 
-### Installation
-
-1. **Clone the repository**
 ```bash
-git clone https://github.com/MikkoOnniPeltonen/Museum-by-centuries.git
-cd Museum-by-centuries
+npm install
+npm run dev
 ```
 
-2. **Start a local server**
+Open http://localhost:5173.
 
-Using Python 3:
-```bash
-python -m http.server 8000
+## Scripts
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the Vite dev server |
+| `npm run build` | Type-check and build to `dist/` |
+| `npm run preview` | Serve the production build |
+| `npm test` | Unit tests (Vitest) |
+| `npm run e2e` | Browser tests (Playwright) against the production build. Run `npx playwright install chromium` once first |
+| `npm run lint` | Lint with oxlint |
+| `npm run images` | Regenerate the WebP images in `public/images` from `assets-src/images` |
+| `npm run soundscapes` | Rebuild `public/audio` from Wikimedia Commons (macOS, needs `afconvert`) |
+
+## Tech stack
+
+React 19, TypeScript, Vite, React Router, Tailwind CSS 4, Motion, Zustand, d3-geo with world-atlas,
+Vitest and Playwright.
+
+## Project structure
+
+```
+src/
+  data/          persons.json (the single source of content), century info, types
+  lib/           pure logic: games, timeline layout, map projection, helpers (unit-tested)
+  store/         saved rooms, audio settings and scores (zustand, localStorage)
+  audio/         soundscape engine, synthesized interface sounds, track credits
+  components/    layout (navbar, backdrop), UI (buttons, modal, toasts), person views
+  features/      pages: intro, hall, collect, room, game, timeline, map
+  styles/        theme tokens, CSS scenes and per-feature styles
+e2e/             Playwright tests
+scripts/         image and soundscape build scripts
+assets-src/      original images (not shipped)
+public/          optimized images and audio
 ```
 
-Using Node.js:
-```bash
-npx http-server
-```
+## How the theming works
 
-Using VS Code Live Server:
-- Right-click on `index.html`
-- Select "Open with Live Server"
+The current century is written to `<html data-century="…">`. Each century defines a handful of colour
+tokens (`--c-deep`, `--c-mid`, `--c-sky`, `--c-accent`, `--c-glow`). They are registered with `@property`,
+so the browser can animate between them. Every scene layer, button and card reads those tokens, which is
+why the entire museum crossfades when you hover a door or switch centuries. Any element can take on another
+century's palette with `data-theme="1700s"`.
 
-3. **Open in browser**
-```
-http://localhost:8000
-```
+## Adding a person
 
-## 📁 Project Structure
+1. Add an entry to `src/data/persons.json`, including `born`, `died`, `traits` and `location`.
+2. Put the portrait and notable-work images in `assets-src/images/` and add them to `scripts/optimize-images.mjs`.
+3. Run `npm run images` and `npm test`. The data tests check every field and image.
 
-```
-Museum-by-centuries/
-├── index.html                  # Main landing page
-├── index.js                    # Landing page logic
-├── roomClass.js                # Room data model (legacy)
-├── components/                 # Reusable UI components
-│   ├── modal.js               # Modal dialog system
-│   ├── modal.css              # Modal styles
-│   └── loading.css            # Loading states & skeletons
-├── data/                       # JSON data files
-│   └── historical-persons.json # Historical figures database
-├── utils/                      # Utility functions
-│   ├── accessibility.js       # Screen reader announcements
-│   └── lazyLoad.js            # Image lazy loading
-├── styles/                     # Stylesheets
-│   ├── design-system.css      # CSS variables & tokens
-│   └── styles.css             # Main styles
-├── historical-persons/         # Person selection page
-│   ├── historicalPersonsPage.html
-│   └── historicalPersonsPage.js
-├── room-view/                  # Room display page
-│   ├── roomViewPage.html
-│   └── roomViewPage.js
-├── game/                       # Game modes
-│   ├── gamePage.html
-│   └── gamePage.js
-└── images/                     # Image assets
-    ├── portraits/             # Historical person portraits
-    ├── notableWorks/          # Notable works images
-    └── logo/                  # Logo assets
-```
+## Historical accuracy
 
-## 🎨 Design System
+The figures are real historical people; the four present-day stories in the next wing are fictional.
+Century placement is an exhibition choice, not a claim that someone lived only in that century.
+Map pins identify associated places, not necessarily birthplaces or exact historical boundaries.
 
-The project uses a comprehensive design system with CSS custom properties:
+See [HISTORICAL_REVIEW.md](HISTORICAL_REVIEW.md) for the September 2026 review of all twenty records,
+supporting sources, corrections and unresolved dates. The approved text corrections, qualified date
+labels and per-person references were applied on 16 September 2026. Open **Sources & historical context**
+in an exhibit or the map/timeline detail panel to read the references. Image provenance remains unverified.
+Structural tests do not establish historical accuracy,
+and AI assistance is not a historical source. New entries should include documented references and
+image provenance; disputed facts should be clearly qualified.
 
-### Color Palette
-```css
---color-primary: #3f87a6;
---color-secondary: #f69d3c;
---color-accent: #ffd700;
-```
+## Rights, provenance and public material
 
-### Century Themes
-- **1600s**: Brown/Earthy tones
-- **1700s**: Blue/Royal tones
-- **1800s**: Purple/Victorian tones
-- **1900s**: Gray/Modern tones
+This project does not claim ownership of the historical figures, events, artworks, documents, music,
+or other materials presented in the museum. The content is built from public material and public-facing
+source records, including publicly accessible archives, museum catalogues, Wikimedia Commons and other
+openly distributed educational references when those sources could be identified.
 
-### Typography Scale
-- Font sizes from `--text-xs` (12px) to `--text-7xl` (72px)
-- Font weights from `--font-light` (300) to `--font-extrabold` (800)
+Where a work's rights or provenance are uncertain, the project does not present it as authenticated or
+personally owned material. Unresolved or weakly attributed images are withheld or replaced with explicit
+collection markers rather than being passed off as historical facsimiles. This is an educational,
+non-commercial exhibition project, not a claim of copyright ownership or a substitute for formal rights
+clearance.
 
-### Spacing System
-- Consistent spacing from `--space-1` (4px) to `--space-32` (128px)
+If a source is not clearly documented, the app should be treated as a presentation of public material under
+review rather than as a certified legal source. The project authors do not claim to own the underlying
+historical or cultural material shown here.
 
-## 🔧 Usage Examples
+## Deployment
 
-### Modal Dialogs
+`.github/workflows/deploy.yml` builds the site with the correct base path and publishes it to GitHub Pages
+on every push to `main`. To use it, set **Settings → Pages → Source** to "GitHub Actions". A `404.html`
+copy of the app makes direct links to any page work.
 
-```javascript
-import { Modal } from './components/modal.js';
+## Credits
 
-// Confirmation dialog
-const confirmed = await Modal.confirm(
-    'Clear all selected persons?',
-    'Confirm Action'
-);
-
-if (confirmed) {
-    // User clicked confirm
-}
-
-// Alert dialog
-await Modal.alert('Room is empty!', 'Notice');
-
-// Custom modal
-const modal = new Modal({
-    title: 'Custom Modal',
-    message: 'This is a custom modal',
-    icon: 'warning',
-    confirmText: 'Proceed',
-    onConfirm: () => console.log('Confirmed')
-});
-modal.show();
-```
-
-### Simple Notifications
-
-```javascript
-// Built-in notification system in historicalPersonsPage.js
-function showNotification(message, type = 'success') {
-    const notification = document.getElementById('notification-container');
-    const notificationMessage = document.getElementById('notification-message');
-
-    notificationMessage.textContent = message;
-    notification.classList.remove('hidden');
-
-    // Auto-hide after 3 seconds
-    setTimeout(() => {
-        notification.classList.add('hidden');
-    }, 3000);
-}
-
-// Usage
-showNotification('Person added to room!', 'success');
-showNotification('Person removed from room', 'info');
-```
-
-### Lazy Loading Images
-
-```javascript
-import { lazyLoader } from './utils/lazyLoad.js';
-
-// HTML
-<img data-src="image.jpg" alt="Description" class="lazy-image">
-
-// JavaScript - auto-initializes on page load
-// Or manually observe:
-const image = document.querySelector('.lazy-image');
-lazyLoader.observe(image);
-
-// Background images
-<div data-bg-src="background.jpg" class="hero"></div>
-```
-
-## 🎮 Game Modes
-
-### 1. Trait Matcher
-Match historical figures by shared traits (writers, scientists, leaders, etc.)
-
-### 2. Century Pairing
-Correctly match each person to their century
-
-### 3. Time Jumpers
-Identify figures from different centuries in a mixed group
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 640px
-- **Tablet**: 640px - 1024px
-- **Desktop**: > 1024px
-
-## ♿ Accessibility Features
-
-- Semantic HTML with proper heading hierarchy
-- ARIA labels and roles
-- Keyboard navigation support
-- Focus management in modals
-- Screen reader announcements
-- High contrast mode support
-- Reduced motion preferences respected
-- Color contrast ratios meet WCAG AA standards
-
-## 🌐 Browser Support
-
-- Chrome/Edge (last 2 versions)
-- Firefox (last 2 versions)
-- Safari (last 2 versions)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 🎯 Performance Optimization
-
-- Lazy loading for images
-- CSS custom properties for theming
-- Intersection Observer for efficient visibility detection
-- LocalStorage for persistent state
-- Debounced scroll handlers
-- Minified CSS animations
-
-## 📊 Data Structure
-
-### Historical Person Object
-```json
-{
-  "id": "unique-id",
-  "century": "1900s",
-  "name": "Albert Einstein",
-  "lifespan": "(1879-1955)",
-  "image": "../images/portraits/Albert_Einstein.jpg",
-  "bio": "Description...",
-  "notableWork": "../images/notableWorks/Albert_Einstein_relativity.jpg",
-  "descriptionOfWork": "Description...",
-  "traits": ["scientist", "mathematician", "writer"],
-  "region": "Europe",
-  "profession": "Theoretical Physicist"
-}
-```
-
-## 🔮 Future Enhancements
-
-- [ ] Audio soundscapes for each century
-- [ ] Advanced search and filtering
-- [ ] Timeline visualization
-- [ ] Dark mode toggle
-- [ ] Social sharing features
-- [ ] Multilingual support
-- [ ] Print-friendly views
-- [ ] Offline capability with Service Worker
-- [ ] Analytics integration
-- [ ] Backend API integration
-
-## 🙏 Acknowledgments
-
-### Third-Party Resources
-- **Tailwind CSS** - Styling framework (https://tailwindcss.com)
-- **Social Media Icons** - Wikimedia Commons
-
-### Historical Content
-- Historical biographies compiled from various educational sources
-- Portrait images and notable works illustrations are used for educational purposes
-- All historical information is presented for non-commercial educational use
-
-### Libraries & Frameworks
-- **Bootstrap 5.3** - Carousel component for person gallery
-- **Tailwind CSS** - Utility-first styling framework
-
-## 📧 Contact
-
-For questions or feedback, please open an issue on GitHub.
-
----
-
-**Built with ❤️ for history enthusiasts and lifelong learners**
+See [CREDITS.md](CREDITS.md). The original vanilla-JavaScript version of the project remains in the git
+history.

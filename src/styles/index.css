@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import "@fontsource-variable/cormorant-garamond";
+@import "@fontsource-variable/inter";
+@import "./theme.css";
+@import "./scene.css";
+@import "./components.css";
+@import "./effects.css";
+@import "./layout.css";
+@import "./intro.css";
+@import "./hall.css";
+@import "./collect.css";
+@import "./room.css";
+@import "./game.css";
+@import "./timeline.css";
+@import "./person.css";
+@import "./map.css";
+@import "./next-wing.css";

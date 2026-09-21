@@ -1,0 +1,211 @@
+@property --frame-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@layer components {
+  .hall {
+    padding-block: clamp(2rem, 6vw, 4.5rem) 2rem;
+  }
+
+  .hall__header {
+    display: grid;
+    gap: 1rem;
+    max-width: 50rem;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  .hall__title {
+    font-size: clamp(2.6rem, 6.4vw, 4.8rem);
+    font-weight: 600;
+    line-height: 1.02;
+  }
+
+  .hall__century {
+    display: inline-grid;
+    min-width: 3.3ch;
+    perspective: 600px;
+    color: var(--c-accent);
+    text-shadow: 0 0 34px color-mix(in oklab, var(--c-glow) 55%, transparent);
+    vertical-align: bottom;
+  }
+
+  .hall__century > span {
+    grid-area: 1 / 1;
+    display: inline-block;
+  }
+
+  .hall__lede {
+    max-width: 40rem;
+    margin-inline: auto;
+    color: var(--color-ink-soft);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .hall__doors {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.5rem), 1fr));
+  }
+
+  /* A door: arched panel with its own century theme via data-theme */
+  .door {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 27rem;
+    overflow: hidden;
+    border-radius: 14rem 14rem 1.25rem 1.25rem / 11rem 11rem 1.25rem 1.25rem;
+    background: linear-gradient(170deg, var(--c-mid), var(--c-deep) 82%);
+    box-shadow:
+      0 40px 70px -40px #000,
+      inset 0 0 0 1px rgb(255 255 255 / 0.06);
+    color: var(--color-ink);
+  }
+
+  .door__scene {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background-repeat: repeat;
+    background-size: var(--tile) var(--tile);
+    opacity: 0.4;
+    mix-blend-mode: soft-light;
+    animation: motif-drift 70s linear infinite;
+  }
+
+  .door__glow {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(80% 50% at 50% 10%, color-mix(in oklab, var(--c-glow) 40%, transparent), transparent 70%),
+      linear-gradient(to top, rgb(0 0 0 / 0.82) 12%, transparent 68%);
+  }
+
+  .door__sheen {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 30%), rgb(255 255 255 / 0.16), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.35s;
+  }
+
+  .door:hover .door__sheen {
+    opacity: 1;
+  }
+
+  /* Gilded border: a rotating conic gradient masked to a 1.5px ring */
+  .door__frame {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(
+      from var(--frame-angle),
+      transparent 0 55%,
+      var(--c-accent) 72%,
+      color-mix(in oklab, var(--c-glow) 70%, white) 80%,
+      var(--c-accent) 88%,
+      transparent 100%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+    opacity: 0.45;
+    pointer-events: none;
+    transition: opacity 0.4s;
+    animation: frame-spin 6s linear infinite;
+  }
+
+  .door:hover .door__frame,
+  .door:focus-within .door__frame {
+    opacity: 1;
+  }
+
+  .door__content {
+    display: grid;
+    gap: 0.6rem;
+    padding: 1.6rem;
+  }
+
+  .door__title {
+    font-size: 2.15rem;
+    font-weight: 600;
+    line-height: 1.05;
+  }
+
+  .door__tagline {
+    color: var(--color-ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .door__progress {
+    display: flex;
+    gap: 0.35rem;
+    margin-top: 0.2rem;
+  }
+
+  .door__dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    border: 1px solid color-mix(in oklab, var(--c-accent) 70%, transparent);
+    transition: background-color 0.4s, box-shadow 0.4s;
+  }
+
+  .door__dot.is-filled {
+    background: var(--c-accent);
+    box-shadow: 0 0 10px var(--c-glow);
+  }
+
+  .door__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+  }
+
+  @media (max-width: 640px) {
+    .door {
+      min-height: 21rem;
+      border-radius: 10rem 10rem 1.25rem 1.25rem / 6rem 6rem 1.25rem 1.25rem;
+    }
+
+    .door__title {
+      font-size: 1.9rem;
+    }
+  }
+
+  .hall__locked {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.25rem;
+  }
+
+  .locked-door {
+    border-style: dashed;
+    color: var(--color-ink-muted);
+  }
+
+  .locked-door strong {
+    color: var(--color-ink-soft);
+  }
+}
+
+@keyframes frame-spin {
+  to {
+    --frame-angle: 360deg;
+  }
+}

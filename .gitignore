@@ -1,6 +1,24 @@
-# macOS System Files
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies and build output
+node_modules
+dist
+dist-ssr
+*.local
+
+# Test artifacts
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Editor and OS files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
 ._*
-
-# Editor Settings
-.vscode/
+*.sw?

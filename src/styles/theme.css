@@ -1,0 +1,142 @@
+@theme {
+  --font-display: "Cormorant Garamond Variable", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter Variable", Inter, ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #f6eedf;
+  --color-ink-soft: #dccfb9;
+  --color-ink-muted: #a99b87;
+
+  --ease-spring: cubic-bezier(0.2, 0.9, 0.3, 1.25);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Century tokens as Tailwind colors (bg-accent, text-glow/80, ...) */
+@theme inline {
+  --color-accent: var(--c-accent);
+  --color-glow: var(--c-glow);
+  --color-deep: var(--c-deep);
+  --color-mid: var(--c-mid);
+  --color-sky: var(--c-sky);
+}
+
+/*
+ * Registered custom properties can be interpolated, so switching
+ * data-century crossfades every gradient that uses them.
+ */
+@property --c-deep {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0b0b0e;
+}
+@property --c-mid {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #34343b;
+}
+@property --c-sky {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #7a5a3c;
+}
+@property --c-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d39a5e;
+}
+@property --c-glow {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f6dcad;
+}
+
+:root {
+  color-scheme: dark;
+  transition:
+    --c-deep 1.4s var(--ease-out-expo),
+    --c-mid 1.4s var(--ease-out-expo),
+    --c-sky 1.4s var(--ease-out-expo),
+    --c-accent 1.4s var(--ease-out-expo),
+    --c-glow 1.4s var(--ease-out-expo);
+}
+
+/* 17th century: burgundy, midnight blue and gold leaf */
+html[data-century="1600s"],
+[data-theme="1600s"] {
+  --c-deep: #12090b;
+  --c-mid: #5a1626;
+  --c-sky: #1b2f5e;
+  --c-accent: #e8b64c;
+  --c-glow: #ffd98a;
+}
+
+/* 18th century: navy, amber and parchment */
+html[data-century="1700s"],
+[data-theme="1700s"] {
+  --c-deep: #08111d;
+  --c-mid: #1f3a5c;
+  --c-sky: #b98a4e;
+  --c-accent: #f0d49a;
+  --c-glow: #fff0c9;
+}
+
+/* 19th century: dark chocolate, forest green and gaslight orange */
+html[data-century="1800s"],
+[data-theme="1800s"] {
+  --c-deep: #0c0e09;
+  --c-mid: #43260f;
+  --c-sky: #214a2b;
+  --c-accent: #e2803e;
+  --c-glow: #ffbe7d;
+}
+
+/* 20th century: charcoal, sepia and copper */
+html[data-century="1900s"],
+[data-theme="1900s"] {
+  --c-deep: #0b0b0e;
+  --c-mid: #34343b;
+  --c-sky: #7a5a3c;
+  --c-accent: #d39a5e;
+  --c-glow: #f6dcad;
+}
+
+@layer base {
+  html {
+    background: var(--c-deep);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--c-accent) 45%, transparent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--c-glow);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
