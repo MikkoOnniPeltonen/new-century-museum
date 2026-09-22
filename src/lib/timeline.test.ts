@@ -31,8 +31,8 @@ describe('packLanes', () => {
     const walesa = PERSONS.find((p) => p.id === 'lech-walesa')!
     expect(spanOf(walesa).end).toBe(TIMELINE_END)
   })
-  it('plots an unknown death only to the last documented living year', () => {
-    const amo = PERSONS.find((p) => p.id === 'anton-amo')!
-    expect(spanOf(amo).end).toBe(1753)
+  it('plots a qualified lifespan using its explicit label', () => {
+    const merian = PERSONS.find((p) => p.id === 'maria-merian')!
+    expect(spanOf(merian).end).toBe(1717)
   })
 })

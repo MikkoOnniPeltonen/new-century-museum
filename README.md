@@ -1,8 +1,10 @@
 # Century Museum
 
-An interactive museum of twenty people who shaped the 17th to 20th centuries. Walk through a cinematic
-entrance, open a wing for each century, collect figures into your own rooms, find them on an antique world
-map, trace their lives on a timeline and test yourself in four games, with a soundscape for every age.
+An interactive museum presenting twenty historical figures across four rooms spanning the 1600s to the
+1900s. Walk through a cinematic entrance, open a wing for each century, collect figures into your own rooms,
+find them on an antique world map, trace their lives on a timeline and test yourself in four games, with a
+soundscape for every age. The 2000s next wing is a fictional, participatory future exhibit rather than a
+historical collection.
 
 Created by **Mikko Peltonen in collaboration with OpenAI Codex**. Mikko provides the concept,
 creative direction and feedback; Codex assists with implementation, visual design, animation,
@@ -63,12 +65,12 @@ Vitest and Playwright.
 
 ```
 src/
-  data/          persons.json (the single source of content), century info, types
+  data/          persons.json, image-provenance.ts, century info, types
   lib/           pure logic: games, timeline layout, map projection, helpers (unit-tested)
   store/         saved rooms, audio settings and scores (zustand, localStorage)
   audio/         soundscape engine, synthesized interface sounds, track credits
   components/    layout (navbar, backdrop), UI (buttons, modal, toasts), person views
-  features/      pages: intro, hall, collect, room, game, timeline, map
+  features/      pages: intro, hall, collect, room, game, timeline, map, next-wing
   styles/        theme tokens, CSS scenes and per-feature styles
 e2e/             Playwright tests
 scripts/         image and soundscape build scripts
@@ -86,9 +88,10 @@ century's palette with `data-theme="1700s"`.
 
 ## Adding a person
 
-1. Add an entry to `src/data/persons.json`, including `born`, `died`, `traits` and `location`.
+1. Add an entry to `src/data/persons.json`, including `born`, `died`, `traits`, `location`, sources and a review date.
 2. Put the portrait and notable-work images in `assets-src/images/` and add them to `scripts/optimize-images.mjs`.
-3. Run `npm run images` and `npm test`. The data tests check every field and image.
+3. Add image captions, provenance or an explicit withheld marker in `src/data/image-provenance.ts`.
+4. Run `npm run images`, `npm test` and `npm run build`. The data tests check every field and optimized image.
 
 ## Historical accuracy
 
@@ -97,12 +100,16 @@ Century placement is an exhibition choice, not a claim that someone lived only i
 Map pins identify associated places, not necessarily birthplaces or exact historical boundaries.
 
 See [HISTORICAL_REVIEW.md](HISTORICAL_REVIEW.md) for the September 2026 review of all twenty records,
-supporting sources, corrections and unresolved dates. The approved text corrections, qualified date
-labels and per-person references were applied on 16 September 2026. Open **Sources & historical context**
-in an exhibit or the map/timeline detail panel to read the references. Image provenance remains unverified.
-Structural tests do not establish historical accuracy,
-and AI assistance is not a historical source. New entries should include documented references and
-image provenance; disputed facts should be clearly qualified.
+supporting sources, corrections and unresolved dates. The text review and qualified date labels were
+applied on 16 September; on 22 September, Anton Wilhelm Amo and Wang Zhenyi were replaced by Olaudah
+Equiano and Maria Sibylla Merian because their displayed image pairings could not be authenticated as
+presented. Open **Sources & historical context** in an exhibit or the map/timeline detail panel to read
+the references. Some image sources are documented, while five weakly attributed contextual images remain
+withheld pending better provenance. See [IMAGE_REVIEW.md](IMAGE_REVIEW.md) for the image audit.
+
+Structural tests do not establish historical accuracy, and AI assistance is not a historical source.
+New entries should include documented biography references, image provenance and reuse terms; disputed
+facts should be clearly qualified.
 
 ## Rights, provenance and public material
 

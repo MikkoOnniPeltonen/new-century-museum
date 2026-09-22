@@ -19,12 +19,12 @@ visible title pages, embedded metadata, catalog records and composition comparis
 catalog candidate is explicitly distinguished from a verified source. A historical artwork
 can be authentic as an artwork without being a contemporary or accurate likeness.
 
-The initial audit made no exhibit changes. The approved follow-up on 17 September
-withholds 2 portraits (Amo and Wang) and 7 work images (Amo, Bahá'u'lláh, Bolívar,
-Wang, Müteferrika, Lovelace and Liu), substituting explicitly labelled abstract
-collection markers. Originals remain preserved on disk. No historical facsimile
-replacements have yet been sourced. Per-image notes and cautious captions are now
-shown in rooms and person drawers; unresolved imagery is not labelled authenticated.
+The approved follow-up on 17 September initially withheld 2 portraits and 7 work images,
+substituting explicitly labelled abstract collection markers. On 22 September, the Amo and
+Wang Zhenyi entries were replaced by Olaudah Equiano and Maria Sibylla Merian, with documented
+portrait/work candidates and per-image notes. Five original work pairings remain withheld.
+Retired originals remain preserved on disk. Per-image notes and cautious captions are shown in
+rooms and person drawers; unresolved imagery is not labelled authenticated.
 The inventory below preserves the assessment of the original assets.
 
 ## Priority actions
@@ -122,7 +122,8 @@ must not be promoted to definitive public captions without a direct source match
 
 ## Remaining implementation work
 
-Source documented replacements for the withheld images and review remaining unresolved sources.
+Source documented replacements for the five remaining withheld work images and review remaining
+unresolved sources.
 Do not claim “all images historically verified” until those open items are resolved.
 
 [gannibal]: https://commons.wikimedia.org/wiki/File:Gannibal.jpg

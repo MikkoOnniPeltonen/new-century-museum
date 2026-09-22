@@ -28,16 +28,16 @@ describe('image evidence', () => {
   })
 
   it('keeps collection markers distinct for the matching game', () => {
-    expect(imageSrc('portraits', 'anton-amo')).not.toBe(imageSrc('portraits', 'wang-zhenyi'))
-    expect(imageSrc('portraits', 'anton-amo')).not.toBe(imageSrc('works', 'anton-amo'))
+    expect(imageSrc('portraits', 'olaudah-equiano')).not.toBe(imageSrc('portraits', 'maria-merian'))
+    expect(imageSrc('portraits', 'olaudah-equiano')).not.toBe(imageSrc('works', 'olaudah-equiano'))
   })
 
   it('labels replacements accessibly while respecting decorative usage', () => {
-    const person = getPerson('anton-amo')!
+    const person = getPerson('olaudah-equiano')!
     const { rerender } = render(<Portrait person={person} />)
-    expect(screen.getByRole('img')).toHaveAttribute('alt', expect.stringContaining('awaiting verification'))
+    expect(screen.getByRole('img')).toHaveAttribute('alt', expect.stringContaining('1789 engraving'))
     rerender(<Portrait person={person} alt="" />)
-    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+    expect(screen.getByRole('presentation')).toHaveAttribute('alt', '')
   })
 
   it('exposes source links and separates rights from provenance', () => {

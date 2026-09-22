@@ -11,17 +11,17 @@ const source = (title: string, url: string) => ({ title, url })
 const withheld = (note: string): ImageEvidence => ({ withheld: true, label: 'Image awaiting verification', note })
 
 export const IMAGE_EVIDENCE: Record<string, Partial<Record<Kind, ImageEvidence>>> = {
-  'anton-amo': {
-    portraits: { ...withheld('The previous painting is not an authenticated likeness of Amo. A neutral collection marker is shown instead.'), source: source('Project Vox: misleading Amo portraits', 'https://projectvox.org/behind-the-scenes/reimagining-anton-wilhelm-amo-through-portraiture/') },
-    works: { ...withheld('The previous image showed the 1734 dissertation, not the featured 1738 treatise. The historical work remains listed; its image is withheld.'), source: source('Berlin: 1734 dissertation', 'https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN634497863&PHYSID=PHYS_0005') },
+  'olaudah-equiano': {
+    portraits: { label: '1789 engraving · Daniel Orme after W. Denton', note: 'This documented portrait was published in 1789 and is held by the National Portrait Gallery as NPG D8546. It is a historical engraving, not a photograph.', source: source('National Portrait Gallery: Equiano portrait', 'https://www.npg.org.uk/collections/search/portrait?locid=1035&mkey=mw42525&rNo=18&wPage=0') },
+    works: { label: '1789 autobiography · frontispiece and title page', note: 'The image shows the frontispiece and title page of The Interesting Narrative. The Library of Congress record identifies the scanned object and reports no known publication restrictions for the file.', source: source('Library of Congress: scanned title page', 'https://www.loc.gov/pictures/item/98501896/') },
   },
   bahaullah: {
     works: { ...withheld('The previous title page credited Horace Holley, not Bahá’u’lláh, and was not the Kitáb-i-Aqdas.'), source: source('Previous image: Horace Holley’s book', 'https://file.bahai.media/a/a6/Revelation_of_Baha%27u%27llah.pdf') },
   },
   'simon-bolivar': { works: withheld('The previous historical painting was not a reproduction of the Jamaica Letter. A sourced facsimile is still needed.') },
-  'wang-zhenyi': {
-    portraits: withheld('The previous illustration has no established source identifying its subject as Wang Zhenyi. This marker is not a likeness.'),
-    works: withheld('The previous illustration was not an authenticated reproduction of The Explanation of Lunar Eclipses.'),
+  'maria-merian': {
+    portraits: { label: 'c.1717 engraving · Jacob Houbraken after Georg Gsell', note: 'The Rijksmuseum identifies this engraving as a portrait of Maria Sibylla Merian and marks the object public domain. The Commons scan records the c.1717 source edition.', source: source('Rijksmuseum: portrait record', 'https://id.rijksmuseum.nl/200206122') },
+    works: { label: 'Hand-coloured plate · 1705', note: 'This plate comes from Merian’s Metamorphosis insectorum Surinamensium. It depicts an insect life cycle with its host plant; the original plate is public domain.', source: source('Harn Museum: Merian, Plate 8', 'https://harn.emuseum.com/objects/13939/plate-8') },
   },
   'ibrahim-muteferrika': { works: withheld('The pictured book could not be established as the Vankulu dictionary. Its image is withheld pending a matching library record.') },
   'ada-lovelace': {

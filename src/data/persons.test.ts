@@ -48,10 +48,10 @@ describe('persons data', () => {
 })
 
 describe('reviewed historical data', () => {
-  it('distinguishes uncertain death dates from living people', () => {
-    const amo = getPerson('anton-amo')!
-    expect(lifespan(amo)).toBe('c. 1703–after 1753')
-    expect(isLiving(amo)).toBe(false)
+  it('keeps qualified dates and living status distinct', () => {
+    const merian = getPerson('maria-merian')!
+    expect(lifespan(merian)).toBe('1647–1717')
+    expect(isLiving(merian)).toBe(false)
     expect(isLiving(getPerson('lech-walesa')!)).toBe(true)
     expect(lifespan(getPerson('sor-juana')!)).toBe('1648 or 1651–1695')
   })

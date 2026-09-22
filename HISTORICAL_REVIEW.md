@@ -7,6 +7,12 @@ This is a source-based editorial audit, not a forensic investigation or exhausti
 from the original audit; wording such as “current” and “recommended” in those findings refers to the
 pre-correction snapshot, not to outstanding implementation work.
 
+**Collection update on 22 September 2026.** The previously reviewed Anton Wilhelm Amo and Wang
+Zhenyi entries were retired from the live collection because their displayed portrait/work images
+could not be authenticated as presented. They were replaced by Olaudah Equiano and Maria Sibylla
+Merian, whose biographies, dates, source references and image provenance notes are now recorded in
+`src/data/persons.json`, `src/data/image-provenance.ts` and `IMAGE_REVIEW.md`.
+
 ## Implementation record
 
 - Corrected all six priority items below, qualified uncertain dates and revised the additional

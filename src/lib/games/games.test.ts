@@ -13,7 +13,7 @@ const ids = (people: { id: string }[]) => people.map((p) => p.id)
 
 describe('Trait Matcher', () => {
   it.each(SEEDS)('seed %i builds a valid round that features a chosen figure', (seed) => {
-    const star = getPerson('wang-zhenyi')!
+    const star = getPerson('maria-merian')!
     const round = createTraitRound(PERSONS, [star], createRng(seed))
 
     expect(new Set(ids(round.options)).size).toBe(6)

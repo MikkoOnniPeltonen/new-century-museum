@@ -39,9 +39,11 @@ Rebuild its stereo loop with `node scripts/build-next-wing-music.mjs` (macOS).
 - Both sets are used for non-commercial, educational purposes. The optimized copies in `public/images/` are
   generated from these originals.
 - Educational intent is not a substitute for recording each image's source and reuse terms.
-- Nine misleading or insufficiently identified image pairings are withheld from display. Their
+- Five misleading or insufficiently identified image pairings remain withheld from display. Their
   replacements are explicitly labelled, code-drawn collection markers, not historical likenesses
-  or facsimiles. Original files are preserved for provenance review, not endorsed for reuse.
+  or facsimiles. The Amo and Wang Zhenyi entries were replaced on 22 September with Equiano and
+  Merian, using documented public-domain portrait/work candidates. Original retired files remain
+  preserved for provenance review, not endorsed for reuse.
 - The century backgrounds, era patterns, door art and map decorations are drawn with CSS and SVG. No image
   files are used for them.
 - The next-wing scenes are original code-drawn SVG illustrations developed in collaboration with Codex;

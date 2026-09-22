@@ -229,33 +229,43 @@
       ]
     },
     {
-      "id": "wang-zhenyi",
+      "id": "maria-merian",
       "century": "1700s",
-      "name": "Wang Zhenyi",
-      "born": 1768,
-      "died": 1797,
-      "region": "Asia",
-      "profession": "Astronomer & Mathematician",
+      "name": "Maria Sibylla Merian",
+      "born": 1647,
+      "died": 1717,
+      "region": "Europe/South America",
+      "profession": "Naturalist & Scientific Illustrator",
       "traits": [
         "scientist",
-        "mathematician",
-        "writer"
+        "writer",
+        "innovator"
       ],
-      "bio": "Wang Zhenyi was a Chinese astronomical and mathematical writer and poet of the Qing dynasty. She explained lunar eclipses and wrote about the Earth, mathematics and astronomy. Many of her writings were lost after her early death.",
+      "bio": "Maria Sibylla Merian was a naturalist, artist and scientific illustrator whose observations helped make insect metamorphosis visible to European readers. After travelling to Suriname in 1699–1701, she published detailed studies of its plants and insects.",
       "work": {
-        "title": "The Explanation of Lunar Eclipses",
-        "description": "Her writing explained lunar eclipses, making astronomical reasoning part of her wider work in mathematics and the study of the heavens."
+        "title": "Metamorphosis insectorum Surinamensium (1705)",
+        "description": "Her richly illustrated book documented the life cycles of Surinamese insects alongside the plants on which they lived."
       },
       "location": {
-        "label": "Jiangning (Nanjing), China",
-        "lat": 32.0603,
-        "lng": 118.7969
+        "label": "Amsterdam, Dutch Republic",
+        "lat": 52.3676,
+        "lng": 4.9041
       },
-      "reviewedOn": "2026-09-16",
+      "lifespanLabel": "1647–1717",
+      "dateNote": "Merian was born in 1647, but her major 1705 publication and scientific work place her in this museum's 1700s room.",
+      "reviewedOn": "2026-09-22",
       "sources": [
         {
-          "title": "Hong Kong Space Museum: Wang Zhenyi",
-          "url": "https://hk.space.museum/en/web/spm/resources/curators-blog/2021/03/wang-zhenyi-an-extraordinary-woman-astronomer-from-the-qing-dynasty.html"
+          "title": "Rijksmuseum: Portrait of Maria Sibylla Merian",
+          "url": "https://id.rijksmuseum.nl/200206122"
+        },
+        {
+          "title": "Royal Collection Trust: Metamorphosis insectorum Surinamensium",
+          "url": "https://www.rct.uk/collection/stories/natural-history-in-the-royal-library/metamorphosis-insectorum-surinamensium"
+        },
+        {
+          "title": "Harn Museum: Merian, Plate 8",
+          "url": "https://harn.emuseum.com/objects/13939/plate-8"
         }
       ]
     },
@@ -296,40 +306,42 @@
       ]
     },
     {
-      "id": "anton-amo",
+      "id": "olaudah-equiano",
       "century": "1700s",
-      "name": "Anton Wilhelm Amo",
-      "born": 1703,
-      "died": null,
-      "region": "Africa/Europe",
-      "profession": "Philosopher",
+      "name": "Olaudah Equiano",
+      "born": 1745,
+      "died": 1797,
+      "region": "Africa/Atlantic",
+      "profession": "Writer & Abolitionist",
       "traits": [
-        "philosopher",
-        "writer"
+        "writer",
+        "activist"
       ],
-      "bio": "Born in present-day Ghana and taken to Europe as an enslaved child, Anton Wilhelm Amo earned a philosophy doctorate at Wittenberg in 1734. He taught at German universities and wrote about knowledge, the mind and its relationship to the body.",
+      "bio": "Olaudah Equiano, also known as Gustavus Vassa, was a formerly enslaved writer, sailor and abolitionist. His autobiography made the violence of the Atlantic slave trade and the case for freedom part of public debate in Britain and beyond.",
       "work": {
-        "title": "Treatise on the Art of Philosophizing Soberly and Accurately",
-        "description": "Published in 1738, this work examined the principles of logic and scientific method, advocating clear and rational thinking."
+        "title": "The Interesting Narrative (1789)",
+        "description": "His autobiography recounts enslavement, life at sea, conversion, literacy and his campaign against the slave trade."
       },
       "location": {
-        "label": "Halle, Prussia",
-        "lat": 51.4969,
-        "lng": 11.9688
+        "label": "London, England",
+        "lat": 51.5072,
+        "lng": -0.1276
       },
-      "deathUnknown": true,
-      "lastKnownAlive": 1753,
-      "lifespanLabel": "c. 1703–after 1753",
-      "dateNote": "His exact birth and death years are uncertain. The timeline ends at the last documented living year, 1753, not his death; Halle's research page records conflicting later dates.",
-      "reviewedOn": "2026-09-16",
+      "lifespanLabel": "c. 1745–1797",
+      "dateNote": "Equiano's birth year and birthplace are disputed. This record uses the commonly cited c. 1745 and does not present his contested childhood origins as settled fact.",
+      "reviewedOn": "2026-09-22",
       "sources": [
         {
-          "title": "University of Halle: Amo research",
-          "url": "https://www.amo.uni-halle.de/?lang=en"
+          "title": "National Portrait Gallery: Equiano portrait",
+          "url": "https://www.npg.org.uk/collections/search/portrait?locid=1035&mkey=mw42525&rNo=18&wPage=0"
         },
         {
-          "title": "Stanford Encyclopedia: German philosophy before Kant",
-          "url": "https://plato.stanford.edu/archives/spr2026/entries/18thGerman-preKant/"
+          "title": "Library of Congress: The Interesting Narrative",
+          "url": "https://www.loc.gov/item/99199422/"
+        },
+        {
+          "title": "Smithsonian: Olaudah Equiano",
+          "url": "https://www.si.edu/object/olaudah-equiano:npg_NPG.78.82"
         }
       ]
     },

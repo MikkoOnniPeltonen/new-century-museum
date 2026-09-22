@@ -129,7 +129,7 @@ export function TimelinePage() {
             Twenty lifetimes across four centuries. Select a life to read more
             {chosen.size > 0 ? '; the figures in your rooms glow.' : '.'}
           </p>
-          <p className="timeline__lede">Dashed outlines indicate date qualifications. Select a life for sources and details; Amo's bar ends at his last documented living year, not his unknown death.</p>
+          <p className="timeline__lede">Dashed outlines indicate date qualifications. Select a life for sources and image notes; dates and century placement are editorially explained where they need context.</p>
         </div>
         <div className="timeline__controls">
           {chosen.size > 0 && (

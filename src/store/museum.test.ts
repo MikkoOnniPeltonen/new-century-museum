@@ -8,11 +8,11 @@ describe('legacy migration', () => {
   beforeEach(() => localStorage.clear())
 
   it('maps saved names from the old site to person ids', () => {
-    localStorage.setItem('room_1700s', legacyRoom(['Voltaire', 'Wang Zhenyi', 'Voltaire']))
+    localStorage.setItem('room_1700s', legacyRoom(['Voltaire', 'Maria Sibylla Merian', 'Voltaire']))
     localStorage.setItem('room_1900s', legacyRoom(['Lech Wałęsa', 'Nobody']))
 
     const rooms = readLegacyRooms(localStorage)
-    expect(rooms?.['1700s']).toEqual(['voltaire', 'wang-zhenyi'])
+    expect(rooms?.['1700s']).toEqual(['voltaire', 'maria-merian'])
     expect(rooms?.['1900s']).toEqual(['lech-walesa'])
     expect(rooms?.['1600s']).toEqual([])
   })
